@@ -6,11 +6,16 @@ export function setupCollisions(scene) {
     event.pairs.forEach(pair => {
       const bodies = [pair.bodyA, pair.bodyB];
       if (bodies.includes(player.body)) {
-        for (let obj of [...arvores, ...barreiras, ...arbustos, ...bermas]) {
+        for (let obj of [...arvores, ...barreiras, ...arbustos,]) {
           if (bodies.includes(obj.body)) {
             this.scene.restart();
           }
         }
+        for (let berma of bermas) {
+        if (bodies.includes(berma)) {
+        this.scene.restart();
+        }
+}
       }
     });
   }, scene);
